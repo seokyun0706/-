@@ -3,23 +3,26 @@ LedControl lc = LedControl(12, 11, 10, 1); //LedControl(DIN, CLK, CS, NUM); (NUM
 
 unsigned long delaytime = 100;
 
-byte happy[] = {. //매투락스값이 8개가 아님
+byte happy[] = {. //매투락스값이 8개가 아님(8줄로 고침)
   B00000000,
   B01000010,
   B10100101,
   B00000000,
   B00000000,
   B01000010,
-  B00111100
+  B00111100,
+  B00000000
 };
 
-byte bad[] = {. //위와 동일
+byte bad[] = {. //8줄로 고침
+  B00000000,
   B10100101,
   B01000010,
   B00000000,
   B00000000,
   B00111100,
-  B01000010
+  B01000010,
+  B00000000
 };
 
 void setup() {

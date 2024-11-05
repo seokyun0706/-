@@ -34,24 +34,31 @@ void setup() {
 
   pinMode(aa, OUTPUT);
   pinMode(ab, OUTPUT);
+
+  pinMode(sound, INPUT);
 }
 
 void loop() {
-  //소리 감지 센서, 부저 연결 및 코딩 해야함
-
   int moisture = analogRead(A0);
-  if (moisture > 600) {
-    draw(bad);
-    delay(delaytime);
-    digitalWrite(aa, HIGH);
-    digitalWrite(ab, LOW);
-    delay(1000);
+  int sound = analogRead(A1);
+
+  if (sound > 600) {
+    if (moisture > 600) {
+      //스피커
+      draw(bad);
+      delay(delaytime);
+      digitalWrite(aa, HIGH);
+      digitalWrite(ab, LOW);
+      delay(1000);
+    } else {
+      draw(happy);
+      delay(delaytime);
+      digitalWrite(aa, LOW);
+      digitalWrite(ab, LOW);
+      delay(1000);
+    }
   } else {
-    draw(happy);
-    delay(delaytime);
-    digitalWrite(aa, LOW);
-    digitalWrite(ab, LOW);
-    delay(1000);
+    // 600이하 경우
   }
 }
 

@@ -5,6 +5,9 @@ int aa = 6;
 int ab = 5;
 unsigned long delaytime = 100;
 
+int rec = 3;
+int plye = 4;
+
 byte happy[] = {
   B00000000,
   B01000010,
@@ -32,10 +35,13 @@ void setup() {
   lc.setIntensity(0, 7); //밝기 설정
   lc.clearDisplay(0);  //화면 clear
 
-  pinMode(aa, OUTPUT);
-  pinMode(ab, OUTPUT);
+  pinMode(aa, OUTPUT); //모터 드라이브 A-A
+  pinMode(ab, OUTPUT); //모터 드라이브 A-B
 
-  pinMode(sound, INPUT);
+  pinMode(sound, INPUT); //소리센서
+
+  pinMode(rec, INPUT); //녹음
+  pinMode(plye, OUTPUT); //출력
 }
 
 void loop() {
@@ -44,13 +50,16 @@ void loop() {
 
   if (sound > 600) {
     if (moisture > 600) {
-      //스피커
+      
+
       draw(bad);
       delay(delaytime);
       digitalWrite(aa, HIGH);
       digitalWrite(ab, LOW);
       delay(1000);
     } else {
+
+
       draw(happy);
       delay(delaytime);
       digitalWrite(aa, LOW);
@@ -58,7 +67,7 @@ void loop() {
       delay(1000);
     }
   } else {
-    // 600이하 경우
+    lc.clearDisplay(0);
   }
 }
 

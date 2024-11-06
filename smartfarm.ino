@@ -64,6 +64,6 @@ void loop() {
 
 void draw(byte arr[]) {
   for (int i = 0; i < 8; i++) {
-    lc.setRow(0, i, arr[i]);
+    lc.setColumn(0, 7-i, arr[i]);
   }
 }

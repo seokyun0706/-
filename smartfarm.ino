@@ -3,7 +3,6 @@ LedControl lc = LedControl(12, 11, 10, 1); //LedControl(DIN, CLK, CS, NUM); (NUM
 
 int aa = 6;
 int ab = 5;
-unsigned long delaytime = 100;
 
 int rec = 3;
 int plye = 4;
@@ -40,7 +39,7 @@ void setup() {
 
   pinMode(sound, INPUT); //소리센서
 
-  pinMode(rec, INPUT); //녹음
+  pinMode(rec, OUTPUT); //녹음
   pinMode(plye, OUTPUT); //출력
 }
 
@@ -48,12 +47,15 @@ void loop() {
   int moisture = analogRead(A0);
   int sound = analogRead(A1);
 
+  swith() {
+    
+  }
+
   if (sound > 600) {
     if (moisture > 600) {
       
-
       draw(bad);
-      delay(delaytime);
+      delay(100);
       digitalWrite(aa, HIGH);
       digitalWrite(ab, LOW);
       delay(1000);
@@ -61,7 +63,7 @@ void loop() {
 
 
       draw(happy);
-      delay(delaytime);
+      delay(100);
       digitalWrite(aa, LOW);
       digitalWrite(ab, LOW);
       delay(1000);

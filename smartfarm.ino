@@ -4,9 +4,6 @@ LedControl lc = LedControl(12, 11, 10, 1); //LedControl(DIN, CLK, CS, NUM); (NUM
 int aa = 6;
 int ab = 5;
 
-int rec = 3;
-int plye = 4;
-
 byte happy[] = {
   B00000000,
   B01000010,
@@ -60,7 +57,6 @@ void loop() {
       digitalWrite(ab, LOW);
       delay(1000);
     } else {
-
 
       draw(happy);
       delay(100);

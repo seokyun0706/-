@@ -34,30 +34,24 @@ void setup() {
   pinMode(aa, OUTPUT); //모터 드라이브 A-A
   pinMode(ab, OUTPUT); //모터 드라이브 A-B
 
-  pinMode(sound, INPUT); //소리센서
-
-  pinMode(rec, OUTPUT); //녹음
-  pinMode(plye, OUTPUT); //출력
+  pinMode(A0, INPUT);
+  pinMode(A1, INPUT);
 }
 
 void loop() {
-  int moisture = analogRead(A0);
   int sound = analogRead(A1);
 
-  swith() {
-    
-  }
-
-  if (sound > 600) {
+  if (sound > 500) {
+    int moisture = analogRead(A0);
     if (moisture > 600) {
-      
       draw(bad);
       delay(100);
       digitalWrite(aa, HIGH);
       digitalWrite(ab, LOW);
-      delay(1000);
+      delay(3000);
+      digitalWrite(aa, LOW);
+      digitalWrite(ab, LOW);
     } else {
-
       draw(happy);
       delay(100);
       digitalWrite(aa, LOW);
